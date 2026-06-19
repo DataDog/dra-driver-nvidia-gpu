@@ -12,7 +12,8 @@ RUN make GOARCH=${TARGETARCH} PREFIX=/artifacts cmds
 RUN mkdir /toolkit
 RUN git clone --branch datadog --depth 1 \
     https://github.com/DataDog/nvidia-container-toolkit /toolkit/nct && \
-    go build -o /toolkit/nvidia-cdi-hook /toolkit/nct/cmd/nvidia-cdi-hook
+    cd /toolkit/nct && \
+    make PREFIX=/toolkit cmds
 
 
 FROM registry.ddbuild.io/images/nvidia-cuda-base:12.9.0
