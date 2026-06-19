@@ -1,0 +1,6 @@
+include: https://gitlab-templates.ddbuild.io/compute-delivery/v3/compute-delivery.yml
+
+build-docker-image:
+  variables:
+    IMAGE_NAME: nvidia/dra-driver
+  extends: .build-docker-image
