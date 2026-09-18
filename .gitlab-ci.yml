@@ -4,3 +4,10 @@ build-docker-image:
   variables:
     IMAGE_NAME: nvidia/dra-driver
   extends: .build-docker-image
+
+build-merged-nydus-image:
+  needs: ["build-docker-image"]
+  variables:
+    IMAGE_NAME: nvidia/dra-driver
+    MERGE_PLATFORM: "true"
+  extends: .build-nydus-image
