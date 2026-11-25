@@ -22,7 +22,8 @@ ENV NVIDIA_DISABLE_REQUIRE="true"
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=utility
 
-USER root
+# user root has UID 0
+USER 0
 
 COPY --from=builder   /toolkit/nvidia-cdi-hook                  /usr/bin/nvidia-cdi-hook
 COPY --from=builder   /artifacts/compute-domain-controller      /usr/bin/compute-domain-controller
